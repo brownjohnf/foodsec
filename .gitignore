@@ -13,3 +13,14 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# OS X
+.DS_Store
+
+# editors
+*.bak
+*~
+~*
+
+# development env vars
+config/initializers/dev_env.rb

@@ -1,0 +1,3 @@
+unless Rails.env.production? do
+  ENV['DEFAULT_MAIL_DOMAIN'] = '<your preferred domain>'
+end
