@@ -22,7 +22,7 @@ Should be really easy.
     $ bundle exec rake db:migrate
     $ foreman start
 
-For production, you'll need to add the Mailgun addon to your app, and set all the config vars found in prod_env.rb.sample.
+For production, you'll need to add the Mailgun addon to your app, and set all the config vars found in `config/initializers/dev_env.rb.sample` for your heroku environment.
 
 # Theory
 
