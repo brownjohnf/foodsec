@@ -13,7 +13,14 @@ This has different answers. Nothing aside from ruby is *technically* required, b
 
 # Installation
 
-Should be really easy. Clone the repo, run bundle, run db:migrate, copy dev_env.rb.sample to dev_env.rb, populate its vars, and start foreman.
+Should be really easy.
+
+    $ git clone http://github.com/brownjohnf/jack-app-base.git
+    $ bundle install --without production
+    $ cp config/initializers/dev_env.rb.sample config/initializers/dev_env.rb
+    $ vi config/initializers/dev_env.rb
+    $ bundle exec rake db:migrate
+    $ foreman start
 
 For production, you'll need to add the Mailgun addon to your app, and set all the config vars found in prod_env.rb.sample.
 
