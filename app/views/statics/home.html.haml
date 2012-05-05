@@ -3,3 +3,13 @@
     .span12
       .hero-unit
         %h1 Hello world!
+      %p You are:
+      %ul
+        - if user_signed_in?
+          %li= 'a user' if current_user.role? :user
+          %li= 'a moderator' if current_user.role? :moderator
+          %li= 'an admin' if current_user.role? :admin
+          %p= link_to 'sign out', destroy_user_session_path, :method => :delete
+        - else
+          %li= 'a guest'
+          %p= link_to 'sign in', new_user_session_path
