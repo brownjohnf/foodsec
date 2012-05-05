@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-BushSpeak::Application.load_tasks
+JackAppBase::Application.load_tasks
