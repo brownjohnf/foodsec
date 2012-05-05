@@ -9,7 +9,11 @@
   %body
     .container
       .row
-        .span12
-          = notice
-          = alert
+        .span4.offset4
+          - if notice
+            .alert.alert-success
+              = notice
+          - if alert
+            .alert.alert-error
+              = alert
     = yield
