@@ -1,0 +1,13 @@
+$(function(){
+  
+  /**************************/
+  
+  /* autocomplete */
+  $('input.autocomplete').autocomplete({
+    serviceUrl: $(this).val('data-source'),
+    onSelect : function(value, data){
+      $(this).val('data-target').val(data);
+    }
+  });
+
+});
