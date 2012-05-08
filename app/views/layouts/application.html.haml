@@ -8,12 +8,33 @@
     = csrf_meta_tags
   %body
     .container
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            .row
+              .span12
+                %a.brand{:href => "#{root_path}"} insert name here
+                %ul.nav
+                  %li= link_to 'some link', '#'
+                %ul.nav.pull-right
+                  %li= link_to 'Sign in', new_user_session_path unless user_signed_in?
+                  %li= link_to 'Sign up', new_user_registration_path unless user_signed_in?
+                  %li= link_to "Sign out #{current_user.email}", destroy_user_session_path, :method => :delete if user_signed_in?
+    .container
       .row
         .span4.offset4
           - if notice
-            .alert.alert-success
+            .alert.alert-success.center
               = notice
           - if alert
-            .alert.alert-error
+            .alert.alert-error.center
               = alert
     = yield
+    .container
+      .row
+        .span12
+          %hr
+          %p Footer text here.
+        - if Rails.env.development?
+          .span12
+            = debug(params)
