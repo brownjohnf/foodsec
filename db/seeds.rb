@@ -10,4 +10,5 @@ admin = User.create(
   :email => 'admin@example.com',
   :password => 'password'
 )
+admin.roles << Role.find_or_create_by_name('Admin')
 admin.confirm!
