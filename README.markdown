@@ -19,8 +19,12 @@ Should be really easy.
     $ bundle install --without production
     $ cp config/initializers/dev_env.rb.sample config/initializers/dev_env.rb
     $ vi config/initializers/dev_env.rb
+    $ bundle exec rake db:create
     $ bundle exec rake db:migrate
+    $ bundle exec rake db:seed
     $ foreman start
+
+You can skip the database seed; all it does is add an admin user (admin@example.com, password: password).
 
 For production, you'll need to add the Mailgun addon to your app, and set all the config vars found in `config/initializers/dev_env.rb.sample` for your heroku environment.
 
