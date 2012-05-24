@@ -9,6 +9,5 @@
           %li= 'a user' if current_user.role? :user
           %li= 'a moderator' if current_user.role? :moderator
           %li= 'an admin' if current_user.role? :admin
-          %p= link_to 'sign out', destroy_user_session_path, :method => :delete
         - else
           %li= 'a guest'
