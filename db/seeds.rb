@@ -11,4 +11,5 @@ admin = User.create(
   :password => 'password'
 )
 admin.roles << Role.find_or_create_by_name('Admin')
+admin.save!
 admin.confirm!
