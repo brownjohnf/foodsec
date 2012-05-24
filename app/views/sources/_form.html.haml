@@ -1,0 +1,31 @@
+= form_for @source do |f|
+  -if @source.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@source.errors.count, "error")} prohibited this source from being saved:"
+      %ul
+        - @source.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :region
+    = f.number_field :region
+  .field
+    = f.label :site
+    = f.number_field :site
+  .field
+    = f.label :sector
+    = f.number_field :sector
+  .field
+    = f.label :phone
+    = f.number_field :phone
+  .field
+    = f.label :email
+    = f.text_field :email
+  .actions
+    = f.submit 'Save'

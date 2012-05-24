@@ -17,14 +17,16 @@ class Ability
       user.roles << Role.find_or_create_by_name('Public')
     end
 
-    can :read, :all
+    # can :read, Static
 
     if user.role? :admin
       can :manage, :all
     elsif user.role? :user
-      can :create, :all
+      
+      # can :read, Static
+      
       if user.role? :moderator
-        can [ :create, :update ], :all
+        can :manage [ Source ]
       end
     end
 

@@ -1,4 +1,6 @@
 JackAppBase::Application.routes.draw do
+  resources :sources
+
   devise_for :users
 
   # The priority is based upon order of creation:

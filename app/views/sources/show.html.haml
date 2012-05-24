@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Last name:
+  = @source.last_name
+%p
+  %b First name:
+  = @source.first_name
+%p
+  %b Region:
+  = @source.region
+%p
+  %b Site:
+  = @source.site
+%p
+  %b Sector:
+  = @source.sector
+%p
+  %b Phone:
+  = @source.phone
+%p
+  %b Email:
+  = @source.email
+
+= link_to 'Edit', edit_source_path(@source)
+\|
+= link_to 'Back', sources_path
