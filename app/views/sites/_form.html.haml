@@ -1,0 +1,4 @@
+= bootstrap_form_for @site do |f|
+  = f.text_field :name
+  = f.collection_select :region_id, Region.all, :id, :name, :include_blank => true
+  = f.actions

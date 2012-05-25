@@ -1,0 +1,10 @@
+.container
+  .row
+    .span4.offset4
+      %h1 Editing region
+
+      = render 'form'
+
+      = link_to 'Show', @region
+      \|
+      = link_to 'Back', regions_path

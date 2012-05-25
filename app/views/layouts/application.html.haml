@@ -7,11 +7,11 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .container
+    .container-fluid
       .navbar.navbar-fixed-top
         .navbar-inner
-          .container
-            .row
+          .container-fluid
+            .row-fluid
               .span12
                 %a.brand{:href => "#{root_path}"} PC|SN Food Security
                 %ul.nav
@@ -21,12 +21,18 @@
                       %b.caret
                     %ul.dropdown-menu
                       %li= link_to 'Data Sources', sources_path
+                      %li= link_to 'Regions', regions_path
+                      %li= link_to 'Sectors', sectors_path
+                      %li= link_to 'Sites', sites_path
                   %li.dropdown
                     %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
                       Add
                       %b.caret
                     %ul.dropdown-menu
                       %li= link_to 'Data Source', new_source_path
+                      %li= link_to 'Region', new_region_path
+                      %li= link_to 'Sector', new_sector_path
+                      %li= link_to 'Site', new_site_path
                 %ul.nav.pull-right
                   %li= link_to 'Sign in', new_user_session_path unless user_signed_in?
                   %li= link_to 'Sign up', new_user_registration_path unless user_signed_in?
@@ -41,11 +47,14 @@
             .alert.alert-error.center
               = alert
     = yield
-    .container
-      .row
+    .container-fluid
+      .row-fluid
         .span12
           %hr
-          %p Footer text here.
-        - if Rails.env.development?
-          .span12
-            = debug(params)
+          %p Peace Corps | Senegal Food Security Data - Developed by John F. Brown
+    .container-fluid
+      .row-fluid
+        .span12
+          - if Rails.env.development?
+            .span12
+              = debug(params)

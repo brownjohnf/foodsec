@@ -1,4 +1,10 @@
 JackAppBase::Application.routes.draw do
+  resources :sectors
+
+  resources :sites
+
+  resources :regions
+
   resources :sources
 
   devise_for :users

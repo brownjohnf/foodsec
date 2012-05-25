@@ -1,31 +1,33 @@
-%h1 Listing sources
+.container-fluid
+  .row-fluid
+    .span12
+      %h1 Listing sources
+      %table.table.table-condensed.table-striped
+        %tr
+          %th Last name
+          %th First name
+          %th Region
+          %th Site
+          %th Sector
+          %th Phone
+          %th Email
+          %th
+          %th
+          %th
 
-%table
-  %tr
-    %th Last name
-    %th First name
-    %th Region
-    %th Site
-    %th Sector
-    %th Phone
-    %th Email
-    %th
-    %th
-    %th
+        - @sources.each do |source|
+          %tr
+            %td= source.last_name
+            %td= source.first_name
+            %td= source.region.name
+            %td= source.site.name if source.site
+            %td= source.sector.name
+            %td= source.phone
+            %td= source.email
+            %td= link_to 'Show', source
+            %td= link_to 'Edit', edit_source_path(source)
+            %td= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete
 
-  - @sources.each do |source|
-    %tr
-      %td= source.last_name
-      %td= source.first_name
-      %td= source.region
-      %td= source.site
-      %td= source.sector
-      %td= source.phone
-      %td= source.email
-      %td= link_to 'Show', source
-      %td= link_to 'Edit', edit_source_path(source)
-      %td= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete
+      %br
 
-%br
-
-= link_to 'New Source', new_source_path
+      = link_to 'New Source', new_source_path

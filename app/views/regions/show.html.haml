@@ -1,0 +1,8 @@
+.container-fluid
+  .row-fluid
+    .span12
+      %h1= @region.name
+
+      = link_to 'Edit', edit_region_path(@region)
+      \|
+      = link_to 'Back', regions_path

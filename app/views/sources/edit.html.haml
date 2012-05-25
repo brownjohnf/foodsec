@@ -1,7 +1,9 @@
-%h1 Editing source
+.container
+  .row
+    .span4.offset4
+      %h1 Editing source
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @source
-\|
-= link_to 'Back', sources_path
+      = link_to 'Show', @source
+      \|
+      = link_to 'Back', sources_path

@@ -13,3 +13,33 @@ admin = User.create(
 admin.roles << Role.find_or_create_by_name('Admin')
 admin.save!
 admin.confirm!
+
+Region.create([
+  { :name => 'Kaolack' },
+  { :name => 'Fatick' },
+  { :name => 'Kaffrine' },
+  { :name => 'Dakar' },
+  { :name => 'Kedougou' },
+  { :name => 'Kolda' },
+  { :name => 'Linguere' },
+  { :name => 'Louga' },
+  { :name => 'St. Louis' },
+  { :name => 'Mattam' },
+  { :name => 'Thies' },
+  { :name => 'Tambacounda' }
+])
+
+Site.create([
+  { :name => 'Dakar' },
+  { :name => 'Ndorong Sereer' }
+])
+
+Sector.create([
+  { :name => 'Urban Agriculture' },
+  { :name => 'Sustainable Rural Agriculture' },
+  { :name => 'Agroforestry' },
+  { :name => 'CED' },
+  { :name => 'Health Education' },
+  { :name => 'Environmental Education' }
+])
+

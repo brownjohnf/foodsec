@@ -1,27 +1,31 @@
-%p#notice= notice
-
-%p
-  %b Last name:
-  = @source.last_name
-%p
-  %b First name:
-  = @source.first_name
-%p
-  %b Region:
-  = @source.region
-%p
-  %b Site:
-  = @source.site
-%p
-  %b Sector:
-  = @source.sector
-%p
-  %b Phone:
-  = @source.phone
-%p
-  %b Email:
-  = @source.email
-
-= link_to 'Edit', edit_source_path(@source)
-\|
-= link_to 'Back', sources_path
+.container-fluid
+  .row
+    .span12
+      %h1
+        = @source.first_name
+        = @source.last_name
+      %table
+        %tbody
+          %tr
+            %td
+              %b Region:
+            %td= @source.region.name
+          %tr
+            %td
+              %b Site:
+            %td= @source.site.name if @source.site
+          %tr
+            %td
+              %b Sector:
+            %td= @source.sector.name
+          %tr
+            %td
+              %b Phone:
+            %td= @source.phone
+          %tr
+            %td
+              %b Email:
+            %td= @source.email
+      = link_to 'Edit', edit_source_path(@source)
+      \|
+      = link_to 'Back', sources_path

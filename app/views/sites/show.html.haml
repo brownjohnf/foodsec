@@ -1,0 +1,11 @@
+.container-fluid
+  .row-fluid
+    .span12
+      %h1= @site.name
+      %p
+        %b Region:
+        = @site.region.name
+
+      = link_to 'Edit', edit_site_path(@site)
+      \|
+      = link_to 'Back', sites_path

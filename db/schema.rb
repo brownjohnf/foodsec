@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120524165855) do
+ActiveRecord::Schema.define(:version => 20120524204602) do
+
+  create_table "regions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "regions", ["name"], :name => "index_regions_on_name", :unique => true
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -28,17 +36,39 @@ ActiveRecord::Schema.define(:version => 20120524165855) do
   add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
   add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
 
+  create_table "sectors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sectors", ["name"], :name => "index_sectors_on_name", :unique => true
+
+  create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.integer  "region_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sites", ["name", "region_id"], :name => "index_sites_on_name_and_region_id", :unique => true
+  add_index "sites", ["name"], :name => "index_sites_on_name"
+  add_index "sites", ["region_id"], :name => "index_sites_on_region_id"
+
   create_table "sources", :force => true do |t|
     t.string   "last_name"
     t.string   "first_name"
-    t.integer  "region"
-    t.integer  "site"
-    t.integer  "sector"
-    t.integer  "phone"
+    t.integer  "region_id"
+    t.integer  "site_id"
+    t.integer  "sector_id"
+    t.string   "phone"
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "sources", ["email"], :name => "index_sources_on_email", :unique => true
+  add_index "sources", ["phone"], :name => "index_sources_on_phone", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
