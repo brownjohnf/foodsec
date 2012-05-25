@@ -20,6 +20,7 @@
                       Go to
                       %b.caret
                     %ul.dropdown-menu
+                      %li= link_to 'Surveys', surveys_path
                       %li= link_to 'Data Sources', sources_path
                       %li= link_to 'Regions', regions_path
                       %li= link_to 'Sectors', sectors_path
@@ -29,7 +30,8 @@
                       Add
                       %b.caret
                     %ul.dropdown-menu
-                      %li= link_to 'Data Source', new_source_path
+                      %li= link_to 'Survey', new_survey_path
+                      %li= link_to 'Source', new_source_path
                       %li= link_to 'Region', new_region_path
                       %li= link_to 'Sector', new_sector_path
                       %li= link_to 'Site', new_site_path

@@ -1,8 +1,17 @@
-= bootstrap_form_for @survey do |f|
-  = f.text_field :name
+= bootstrap_form_for @survey, :html => {:class => 'form-inline'} do |f|
+  = f.text_field :name, :label => 'Survey Title'
   = f.fields_for :indicators do |i|
-    %hr
-    = i.text_field :name
-    = i.text_field :question
-    = i.check_box :_destroy
+    .well{:id => "indicator#{i.object.id.to_s}"}
+      = render 'indicators/fields', :f => i
+      = link_to 'remove indicator', i.object, remote: true, method: :delete unless i.object.new_record?
+      %hr
+      = i.fields_for :answers do |a|
+        %div{:id => "answer#{a.object.id.to_s}"}
+          = render 'answers/fields', :f => a
+          = link_to 'remove answer', a.object, method: :delete, remote: true unless a.object.new_record?
+      - unless i.object.new_record?
+        %hr
+        = link_to 'add answer', new_answer_path(:indicator_id => i.object.id), remote: true
+  - unless f.object.new_record?
+    = link_to 'add indicator', new_indicator_path(:survey_id => f.object.id), remote: true
   = f.actions

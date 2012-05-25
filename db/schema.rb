@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525100230) do
+ActiveRecord::Schema.define(:version => 20120525104336) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "indicator_id"
+    t.string   "content"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "answers", ["content", "indicator_id"], :name => "index_answers_on_content_and_indicator_id", :unique => true
+  add_index "answers", ["content"], :name => "index_answers_on_content"
+  add_index "answers", ["indicator_id"], :name => "index_answers_on_indicator_id"
 
   create_table "indicators", :force => true do |t|
     t.string   "name"

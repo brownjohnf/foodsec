@@ -31,6 +31,7 @@ class IndicatorsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @indicator }
+      format.js
     end
   end
 
@@ -80,6 +81,7 @@ class IndicatorsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to indicators_url }
       format.json { head :no_content }
+      format.js
     end
   end
 end

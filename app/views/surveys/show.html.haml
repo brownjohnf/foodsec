@@ -9,6 +9,9 @@
             = indicator.name
             %br
             = indicator.question
+            %ul
+              - for answer in indicator.answers
+                %li= answer.content
 
       = link_to 'Edit', edit_survey_path(@survey)
       \|
