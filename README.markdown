@@ -1,10 +1,10 @@
-# Jack App Base: What is it?
+# PC|SN Food Security App
 
-It's a basic, functional app with Devise, CanCan and a basic role system already implemented.
+It's a basic, functional app with Devise, CanCan and a basic role system already implemented, built on my jack-app-base.
 
 # Requirements
 
-This has different answers. Nothing aside from ruby is *technically* required, but the app is designed to run as follows.
+This has different answers. Nothing aside from ruby/rails is *technically* required, but the app is designed to run as follows.
 
 * Rails 3.2.3
 * Bundler
@@ -15,7 +15,7 @@ This has different answers. Nothing aside from ruby is *technically* required, b
 
 Should be really easy.
 
-    $ git clone http://github.com/brownjohnf/jack-app-base.git
+    $ git clone http://github.com/brownjohnf/foodsec.git
     $ bundle install --without production
     $ cp config/initializers/dev_env.rb.sample config/initializers/dev_env.rb
     $ vi config/initializers/dev_env.rb
@@ -24,12 +24,10 @@ Should be really easy.
     $ bundle exec rake db:seed
     $ foreman start
 
-You can skip the database seed; all it does is add an admin user (admin@example.com, password: password).
+You can skip the database seed; it adds a bunch of Senegal-specific data and an admin user (admin@example.com, password: password).
 
 For production, you'll need to add the Mailgun addon to your app, and set all the config vars found in `config/initializers/dev_env.rb.sample` for your heroku environment.
 
 # Theory
 
-The idea behind this is to have an out-of-the-box functional, secured app, ready to take in any direction. It intentionally has no demo resources or styling (aside from bootswatch). I wanted to have nothing which would need to be removed for any app.
-
-First and foremost, I built this for myself. If you find it useful, great. If not, I'd love to hear your critiques, but you should use something else if you're unhappy.
+In its partnership with USAID/Feed the Future, PC|SN is accumulating a lot of data, and it's hard to manipulate, organize, access, and share. This app aims to tackle some of these problems.

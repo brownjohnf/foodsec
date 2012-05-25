@@ -1,4 +1,8 @@
 JackAppBase::Application.routes.draw do
+  resources :indicators
+
+  resources :surveys
+
   resources :sectors
 
   resources :sites

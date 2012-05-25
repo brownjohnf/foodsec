@@ -26,7 +26,8 @@ class Ability
       # can :read, Static
       
       if user.role? :moderator
-        can :manage [ Source ]
+        can :manage, :all
+        cannot :manage, [ User, Role ]
       end
     end
 

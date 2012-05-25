@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120524204602) do
+ActiveRecord::Schema.define(:version => 20120525100230) do
+
+  create_table "indicators", :force => true do |t|
+    t.string   "name"
+    t.string   "question"
+    t.integer  "survey_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "indicators", ["name"], :name => "index_indicators_on_name", :unique => true
+  add_index "indicators", ["question"], :name => "index_indicators_on_question", :unique => true
 
   create_table "regions", :force => true do |t|
     t.string   "name"
@@ -69,6 +80,14 @@ ActiveRecord::Schema.define(:version => 20120524204602) do
 
   add_index "sources", ["email"], :name => "index_sources_on_email", :unique => true
   add_index "sources", ["phone"], :name => "index_sources_on_phone", :unique => true
+
+  create_table "surveys", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "surveys", ["name"], :name => "index_surveys_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

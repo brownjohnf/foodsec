@@ -1,0 +1,15 @@
+.container-fluid
+  .row-fluid
+    .span12
+      %h1= @survey.name
+
+      %ol
+        - for indicator in @survey.indicators
+          %li
+            = indicator.name
+            %br
+            = indicator.question
+
+      = link_to 'Edit', edit_survey_path(@survey)
+      \|
+      = link_to 'Back', surveys_path

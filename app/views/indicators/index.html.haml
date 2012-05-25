@@ -1,0 +1,21 @@
+%h1 Listing indicators
+
+%table
+  %tr
+    %th Name
+    %th Survey
+    %th
+    %th
+    %th
+
+  - @indicators.each do |indicator|
+    %tr
+      %td= indicator.name
+      %td= indicator.survey_id
+      %td= link_to 'Show', indicator
+      %td= link_to 'Edit', edit_indicator_path(indicator)
+      %td= link_to 'Destroy', indicator, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Indicator', new_indicator_path

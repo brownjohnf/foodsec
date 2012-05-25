@@ -1,0 +1,8 @@
+= bootstrap_form_for @survey do |f|
+  = f.text_field :name
+  = f.fields_for :indicators do |i|
+    %hr
+    = i.text_field :name
+    = i.text_field :question
+    = i.check_box :_destroy
+  = f.actions
